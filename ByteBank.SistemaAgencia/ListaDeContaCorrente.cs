@@ -26,7 +26,7 @@ namespace ByteBank.SistemaAgencia
             _itens = new ContaCorrente[5];
             _proximaPosicao = 0;
         }
-  
+
 
         public void Adicionar(ContaCorrente item)
         {
@@ -39,12 +39,20 @@ namespace ByteBank.SistemaAgencia
             _proximaPosicao++;
         }
 
+
+        public void AdicionarVarios(params ContaCorrente[] itens)
+        {
+            foreach (ContaCorrente conta in itens)
+            {
+                Adicionar(conta);
+            }
+        }
         public void Remover(ContaCorrente item)
         {
 
             int indiceItem = -1;
 
-            for(int i = 0; i < _proximaPosicao; i++)
+            for (int i = 0; i < _proximaPosicao; i++)
             {
                 ContaCorrente itemAtual = _itens[i];
 
@@ -58,7 +66,7 @@ namespace ByteBank.SistemaAgencia
             }
 
 
-            for(int i = indiceItem; i< _proximaPosicao-1; i++)
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
             {
                 _itens[i] = _itens[i + 1];
             }
@@ -68,7 +76,7 @@ namespace ByteBank.SistemaAgencia
 
         }
 
-        public ContaCorrente GetItemNoIndice( int indice)
+        public ContaCorrente GetItemNoIndice(int indice)
         {
             if (indice < 0 || indice >= _proximaPosicao)
             {
@@ -77,11 +85,11 @@ namespace ByteBank.SistemaAgencia
 
             return _itens[indice];
         }
-      
+
 
         private void VerificarCapacidade(int tamanhoNecessario)
         {
-            if(_itens.Length >= tamanhoNecessario)
+            if (_itens.Length >= tamanhoNecessario)
             {
                 return;
             }
@@ -90,7 +98,7 @@ namespace ByteBank.SistemaAgencia
 
             ContaCorrente[] novoArray = new ContaCorrente[tamanhoNecessario];
 
-            for(int indice = 0; indice < _itens.Length; indice++)
+            for (int indice = 0; indice < _itens.Length; indice++)
             {
                 novoArray[indice] = _itens[indice];
                 Console.WriteLine(".");
@@ -98,13 +106,13 @@ namespace ByteBank.SistemaAgencia
 
             _itens = novoArray;
         }
-                   
+
         public ContaCorrente this[int indice]
         {
-               get
-               {
-                  return GetItemNoIndice(indice);
-               }
+            get
+            {
+                return GetItemNoIndice(indice);
+            }
         }
     }
 }
