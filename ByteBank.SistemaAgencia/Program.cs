@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
 using Humanizer;
+using ByteBank.SistemaAgencia.Extensoes;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -25,11 +26,8 @@ namespace ByteBank.SistemaAgencia
             idades.Add(38);
             idades.Add(61);
 
-            // ListExtensoes.AdicionarVarios(idades, 1, 5687, 1987, 1567, 987);
+            idades.AdicionarVarios(45, 89, 12);
 
-            idades.AdicionarVarios(5, 448, 7898, 4564);
-
-            idades.Remove(5);
 
             for (int i = 0; i < idades.Count; i++)
             {
@@ -104,8 +102,6 @@ namespace ByteBank.SistemaAgencia
 
         }
 
-
-
         static void TestaArrayDeContaCorrente()
         {
             ContaCorrente[] contas = new ContaCorrente[]
@@ -122,7 +118,6 @@ namespace ByteBank.SistemaAgencia
                 Console.WriteLine($"Conta {indice} {contaAtual.Numero}");
             }
 
-
         }
         static void TestaArrayInt()
         {
@@ -137,7 +132,6 @@ namespace ByteBank.SistemaAgencia
             idades[5] = 60;
 
             Console.WriteLine(idades.Length);
-
 
             int acumulador = 0;
             for (int indice = 0; indice < idades.Length; indice++)

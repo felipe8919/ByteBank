@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Parte 8
+// Aula 02
+// vídeo 02
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
